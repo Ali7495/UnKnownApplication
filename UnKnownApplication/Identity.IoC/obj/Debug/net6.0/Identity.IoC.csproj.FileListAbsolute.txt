@@ -1,0 +1,15 @@
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.IoC.deps.json
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.IoC.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.IoC.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.Application.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.Application.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.csproj.AssemblyReference.cache
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.GeneratedMSBuildEditorConfig.editorconfig
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.AssemblyInfoInputs.cache
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.AssemblyInfo.cs
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.csproj.CoreCompileInputs.cache
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.csproj.CopyComplete
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\refint\Identity.IoC.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\ref\Identity.IoC.dll
