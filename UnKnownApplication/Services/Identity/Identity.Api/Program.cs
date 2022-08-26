@@ -41,7 +41,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidIssuer = "http://localhost",
 
         // Key for signing
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("VerifiableToken"))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Verifiable Token need to be long enough to prevent any runtime errors"))
     };
 });
 
@@ -55,7 +55,7 @@ builder.Services.AddCors(options =>
          // To check in every method
          // To check if they have credentials
          // Build
-         builder.AllowAnyOrigin()
+         builder//.AllowAnyOrigin()
                  .AllowAnyHeader()
                  .AllowAnyMethod()
                  .AllowCredentials()

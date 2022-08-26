@@ -43,7 +43,9 @@ namespace Identity.Api.Controllers
                 return Ok();
             }
 
-            return Ok(await _identityServices.Login(loginViewModel, returnUrl));
+            var result = await _identityServices.Login(loginViewModel, returnUrl);
+
+            return Ok(result);
         }
 
         [HttpPost("LogOutUser")]

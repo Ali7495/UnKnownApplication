@@ -16,7 +16,7 @@ namespace Identity.Application.AppServices
         {
             return await Task.Run(() =>
             {
-                SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("VerifiableToken"));
+                SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Verifiable Token need to be long enough to prevent any runtime errors"));
                 SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
                 JwtSecurityToken tokenOptions = new JwtSecurityToken(issuer: "http://localhost",
                     claims: new List<Claim>

@@ -14,6 +14,7 @@ namespace Identity.Application.AppServices
     {
         public async Task<SignInRsultDto> HandleSignInResult(SignInResult result, string? returnUrl, string? token)
         {
+
             return await Task.Run(() =>
             {
                 SignInRsultDto signInRsultDto;
@@ -24,8 +25,11 @@ namespace Identity.Application.AppServices
                     {
                         Message = "Successfuly logged in",
                         ReturnUrl = returnUrl,
-                        Status = IdentityStatus.LoggedIn
+                        Status = IdentityStatus.LoggedIn,
+                        Token = token
                     };
+
+                    return signInRsultDto;
                 }
 
                 if (!result.Succeeded)
@@ -35,6 +39,8 @@ namespace Identity.Application.AppServices
                         Message = "Problem occured during logging in",
                         Status = IdentityStatus.LoggedInFailed
                     };
+
+                    return signInRsultDto;
                 }
 
                 if (result.IsLockedOut)
@@ -44,6 +50,8 @@ namespace Identity.Application.AppServices
                         Message = "Your account has been locked",
                         Status = IdentityStatus.LockedAccount
                     };
+
+                    return signInRsultDto;
                 }
 
                 if (result.IsNotAllowed)
@@ -53,6 +61,8 @@ namespace Identity.Application.AppServices
                         Message = "Your not allowed to sign in",
                         Status = IdentityStatus.NotAllowed
                     };
+
+                    return signInRsultDto;
                 }
 
                 if (result.RequiresTwoFactor)
@@ -62,6 +72,8 @@ namespace Identity.Application.AppServices
                         Message = "Singning in requered two factor authentication",
                         Status = IdentityStatus.TwoFactorNeeded
                     };
+
+                    return signInRsultDto;
                 }
 
                 return new SignInRsultDto();

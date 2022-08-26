@@ -40,11 +40,14 @@ namespace Identity.Application.AppServices
                 return new SignInRsultDto() { Message = "This user is not Exists", Status = IdentityStatus.UserIsNull };
             }
 
-            //Create Key to validate client
-
-            string tokenString = await SecurityTokenFactory.SercurityTokenCreator(viewMoel);
-
             SignInResult result = await _signInManager.PasswordSignInAsync(user, viewMoel.Password, viewMoel.RememberMe, true);
+
+            string tokenString = String.Empty;
+
+            if (result.Succeeded)
+            {
+                tokenString = await SecurityTokenFactory.SercurityTokenCreator(viewMoel);
+            }
 
             return await _signInResultHandler.HandleSignInResult(result, returnUrl, tokenString);
         }
