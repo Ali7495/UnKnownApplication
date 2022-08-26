@@ -12,7 +12,7 @@ namespace Identity.Application.AppServices
 {
     public class SignInResultHandler : ISignInResultHandler
     {
-        public async Task<SignInRsultDto> HandleSignInResult(SignInResult result, string? returnUrl)
+        public async Task<SignInRsultDto> HandleSignInResult(SignInResult result, string? returnUrl, string? token)
         {
             return await Task.Run(() =>
             {

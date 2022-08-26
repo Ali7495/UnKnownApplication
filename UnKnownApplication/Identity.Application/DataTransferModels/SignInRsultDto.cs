@@ -11,6 +11,7 @@ namespace Identity.Application.DataTransferModels
     {
         public string ReturnUrl { get; set; } = string.Empty;
         public string Message { get; set; } = string.Empty;
+        public string Token { get; set; } = string.Empty;
         public IdentityStatus Status { get; set; }
     }
 }

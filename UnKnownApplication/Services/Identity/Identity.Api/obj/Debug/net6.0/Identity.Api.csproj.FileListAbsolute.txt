@@ -73,3 +73,5 @@ F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\obj\Debug\net6.0\Identity.Api.pdb
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\obj\Debug\net6.0\Identity.Api.genruntimeconfig.cache
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\obj\Debug\net6.0\ref\Identity.Api.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

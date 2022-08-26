@@ -10,6 +10,6 @@ namespace Identity.Application.Interfaces
 {
     public interface ISignInResultHandler
     {
-        Task<SignInRsultDto> HandleSignInResult(SignInResult result, string? returnUrl);
+        Task<SignInRsultDto> HandleSignInResult(SignInResult result, string? returnUrl, string? token);
     }
 }

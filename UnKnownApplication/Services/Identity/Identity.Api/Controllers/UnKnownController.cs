@@ -22,7 +22,7 @@ namespace Identity.Api.Controllers
         [HttpPost("RegisterUser")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> RegisterUser(RegisterDto registerViewModel, string? returnUrl)
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterDto registerViewModel, string? returnUrl)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -33,7 +33,7 @@ namespace Identity.Api.Controllers
         [HttpPost("LoginUser")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> LoginUser(LoginDto loginViewModel, string? returnUrl)
+        public async Task<IActionResult> LoginUser([FromBody] LoginDto loginViewModel, string? returnUrl)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
