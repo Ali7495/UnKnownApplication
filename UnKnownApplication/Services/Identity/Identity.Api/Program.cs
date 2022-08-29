@@ -1,3 +1,4 @@
+using Identity.Application.ExceptionHandling;
 using Identity.Infra.Context;
 using Identity.IoC;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -76,6 +77,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 DependencyContainer.RegisterServices(builder.Services);
 
 var app = builder.Build();
+
+app.UseCustomExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
