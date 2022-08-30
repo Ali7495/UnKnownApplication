@@ -1,4 +1,5 @@
 using Identity.Application.ExceptionHandling;
+using Identity.Application.RequestUrlControlling;
 using Identity.Infra.Context;
 using Identity.IoC;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -80,6 +81,7 @@ var app = builder.Build();
 
 app.UseCustomExceptionHandler();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -88,7 +90,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseUnAuthorizedUrlBlockerMiddleware();
 app.UseCors("IdentityServiceCors");
 app.UseAuthentication();
 app.UseAuthorization();

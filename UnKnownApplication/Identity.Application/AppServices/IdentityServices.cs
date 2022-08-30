@@ -40,6 +40,8 @@ namespace Identity.Application.AppServices
                 return new SignInRsultDto() { Message = "This user is not Exists", Status = IdentityStatus.UserIsNull };
             }
 
+            IdentityFeaturesHandler.ReturnUrlValidator(returnUrl);
+
             SignInResult result = await _signInManager.PasswordSignInAsync(user, viewMoel.Password, viewMoel.RememberMe, true);
 
             string tokenString = String.Empty;
@@ -65,6 +67,8 @@ namespace Identity.Application.AppServices
                 _logger.LogError(_responseMessageServices.GetResponseMessageByStatusCode(IdentityStatus.PasswordIsAndConfirmPasswordNotEqual).Result);
                 return new SignInRsultDto() { Message = "Password and confirm password are not match", Status = IdentityStatus.PasswordIsAndConfirmPasswordNotEqual };
             }
+
+            IdentityFeaturesHandler.ReturnUrlValidator(returnUrl);
 
             IdentityUser user = new IdentityUser()
             {
