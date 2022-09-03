@@ -5,10 +5,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Identity.Infra.Migrations
 {
-    public partial class CreateDB : Migration
+    public partial class CreateDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "Contact");
+
+            migrationBuilder.EnsureSchema(
+                name: "Person");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -46,6 +52,43 @@ namespace Identity.Infra.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ContactType",
+                schema: "Contact",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TypeName = table.Column<string>(type: "nvarchar(90)", maxLength: 90, nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Person",
+                schema: "Person",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(180)", maxLength: 180, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(180)", maxLength: 180, nullable: false),
+                    NationalCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsMarried = table.Column<bool>(type: "bit", nullable: true),
+                    Gender = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Person", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +197,63 @@ namespace Identity.Infra.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PersonContact",
+                schema: "Contact",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PersonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ContactTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Key = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PersonContact", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PersonContact_ContactType_ContactTypeId",
+                        column: x => x.ContactTypeId,
+                        principalSchema: "Contact",
+                        principalTable: "ContactType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PersonContact_Person_PersonId",
+                        column: x => x.PersonId,
+                        principalSchema: "Person",
+                        principalTable: "Person",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Staff",
+                schema: "Person",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PersonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Staff", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Staff_Person_PersonId",
+                        column: x => x.PersonId,
+                        principalSchema: "Person",
+                        principalTable: "Person",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -192,6 +292,24 @@ namespace Identity.Infra.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonContact_ContactTypeId",
+                schema: "Contact",
+                table: "PersonContact",
+                column: "ContactTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PersonContact_PersonId",
+                schema: "Contact",
+                table: "PersonContact",
+                column: "PersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Staff_PersonId",
+                schema: "Person",
+                table: "Staff",
+                column: "PersonId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -212,10 +330,26 @@ namespace Identity.Infra.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "PersonContact",
+                schema: "Contact");
+
+            migrationBuilder.DropTable(
+                name: "Staff",
+                schema: "Person");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ContactType",
+                schema: "Contact");
+
+            migrationBuilder.DropTable(
+                name: "Person",
+                schema: "Person");
         }
     }
 }

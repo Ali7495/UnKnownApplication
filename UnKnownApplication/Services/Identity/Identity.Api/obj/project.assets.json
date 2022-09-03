@@ -1166,10 +1166,25 @@
           "bin/placeholder/Identity.Application.dll": {}
         }
       },
+      "Identity.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.8",
+          "Microsoft.Extensions.Identity.Core": "6.0.8"
+        },
+        "compile": {
+          "bin/placeholder/Identity.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Identity.Domain.dll": {}
+        }
+      },
       "Identity.Infra/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Identity.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8"
         },
@@ -3191,6 +3206,11 @@
       "type": "project",
       "path": "../../../Identity.Application/Identity.Application.csproj",
       "msbuildProject": "../../../Identity.Application/Identity.Application.csproj"
+    },
+    "Identity.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../../Identity.Domain/Identity.Domain.csproj",
+      "msbuildProject": "../../../Identity.Domain/Identity.Domain.csproj"
     },
     "Identity.Infra/1.0.0": {
       "type": "project",

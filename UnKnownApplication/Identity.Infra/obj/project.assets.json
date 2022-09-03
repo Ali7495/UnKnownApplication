@@ -659,6 +659,20 @@
             "rid": "win"
           }
         }
+      },
+      "Identity.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.8",
+          "Microsoft.Extensions.Identity.Core": "6.0.8"
+        },
+        "compile": {
+          "bin/placeholder/Identity.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Identity.Domain.dll": {}
+        }
       }
     }
   },
@@ -1915,10 +1929,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Identity.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Identity.Domain/Identity.Domain.csproj",
+      "msbuildProject": "../Identity.Domain/Identity.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Identity.Domain >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.8"
     ]
@@ -1953,7 +1973,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Domain\\Identity.Domain.csproj": {
+              "projectPath": "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Domain\\Identity.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -10,3 +10,6 @@ F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Infra\obj\Debug\net6.0\refint\Identity.Infra.dll
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Infra\obj\Debug\net6.0\Identity.Infra.pdb
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Infra\obj\Debug\net6.0\ref\Identity.Infra.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Infra\bin\Debug\net6.0\Identity.Domain.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Infra\bin\Debug\net6.0\Identity.Domain.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Infra\obj\Debug\net6.0\Identity.Infra.csproj.CopyComplete

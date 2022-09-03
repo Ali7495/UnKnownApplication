@@ -742,8 +742,18 @@
           "Identity.Application.dll": {}
         }
       },
+      "Identity.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.8",
+          "Microsoft.Extensions.Identity.Core": "6.0.8"
+        },
+        "runtime": {
+          "Identity.Domain.dll": {}
+        }
+      },
       "Identity.Infra/1.0.0": {
         "dependencies": {
+          "Identity.Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8"
         },
@@ -1336,6 +1346,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "Identity.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Identity.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

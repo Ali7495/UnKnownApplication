@@ -1,0 +1,12 @@
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\bin\Debug\net6.0\Identity.Domain.deps.json
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\bin\Debug\net6.0\Identity.Domain.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\bin\Debug\net6.0\Identity.Domain.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.csproj.AssemblyReference.cache
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.AssemblyInfoInputs.cache
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.AssemblyInfo.cs
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.csproj.CoreCompileInputs.cache
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\refint\Identity.Domain.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\Identity.Domain.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.Domain\obj\Debug\net6.0\ref\Identity.Domain.dll
