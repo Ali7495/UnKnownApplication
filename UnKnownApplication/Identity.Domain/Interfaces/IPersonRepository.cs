@@ -9,8 +9,8 @@ namespace Identity.Domain.Interfaces
 {
     public interface IPersonRepository
     {
-        Task<Person> CreatePersonAsync(Person personInput);
-        Task<Person> UpdatePersonAsync(Person personInput);
+        Task CreatePersonAsync(Person personInput);
+        Task UpdatePersonAsync(Person personInput);
         Task<List<Person>> GetAllPersonsAsync();
         Task<Person> GetPersonByIdAsync(Guid personId);
         Task<bool> DeletePersonAsync(Guid personId);

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Identity.Application.DataTransferModels.InputDtos;
 using Identity.Application.DataTransferModels.OutPutDtos;
 using Identity.Domain.Models;
 using System;
@@ -14,6 +15,7 @@ namespace Identity.Application.AutoMapper
         public Mapper()
         {
             CreateMap<PersonOutputDto, Person>().ReverseMap();
+            CreateMap<PersonInputDto, Person>().ReverseMap();
         }
     }
 }

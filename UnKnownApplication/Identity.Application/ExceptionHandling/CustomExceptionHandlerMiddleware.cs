@@ -40,6 +40,11 @@ namespace Identity.Application.ExceptionHandling
             {
                 _logger.LogError(exception,exception.Message);
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex,ex.Message);
+                throw;
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Identity.Application.DataTransferModels.OutPutDtos
 {
     public class PersonOutputDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string NationalCode { get; set; } = string.Empty;

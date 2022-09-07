@@ -18,7 +18,7 @@ namespace Identity.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            
             services.AddScoped<IResponseMessageServices, ResponseMessageServices>();
             services.AddScoped<IIdentityServices, IdentityServices>();
             services.AddScoped<ILogger<IdentityServices>, Logger<IdentityServices>>();

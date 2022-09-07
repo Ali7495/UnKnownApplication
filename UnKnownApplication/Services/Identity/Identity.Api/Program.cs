@@ -75,12 +75,16 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 })
                 .AddEntityFrameworkStores<UnKnownDbContext>();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 DependencyContainer.RegisterServices(builder.Services);
 
 var app = builder.Build();
 
-app.UseCustomExceptionHandler();
 
+
+app.UseCors("IdentityServiceCors");
+app.UseCustomExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -91,7 +95,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseUnAuthorizedUrlBlockerMiddleware();
-app.UseCors("IdentityServiceCors");
+
 app.UseAuthentication();
 app.UseAuthorization();
 

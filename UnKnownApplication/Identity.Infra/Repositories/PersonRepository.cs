@@ -21,26 +21,13 @@ namespace Identity.Infra.Repositories
             dbConnection = new SqlConnection(configuration.GetConnectionString("IdentityConnectionString"));
         }
 
-        public Task<Person> CreatePersonAsync(Person personInput)
+        public Task CreatePersonAsync(Person personInput)
         {
-            return Task.Run<Person>(() =>
+            return Task.Run(() =>
             {
                 string query = "INSERT Person.Person(Id,Name,LastName,NationalCode,BirthDate,IsMarried,Gender,CreationDate,UpdateDate,IsDeleted) VALUES(@Id,@Name,@LastName,@NationalCode,@BirthDate,@IsMarried,@Gender,@CreationDate,@UpdateDate,@IsDeleted)";
-                dbConnection.Query(query, new
-                {
-                    personInput.Id,
-                    personInput.Name,
-                    personInput.LastName,
-                    personInput.NationalCode,
-                    personInput.BirthDate,
-                    personInput.IsMarried,
-                    personInput.Gender,
-                    personInput.CreationDate,
-                    personInput.UpdateDate,
-                    personInput.IsDeleted
-                });
+                dbConnection.Query(query, personInput);
 
-                return personInput;
             });
         }
 
@@ -48,8 +35,10 @@ namespace Identity.Infra.Repositories
         {
             return Task.Run<bool>(() =>
             {
-                string query = "UPDATE Person.Person SET IsDeleted = 1 WHERE Id = @Id";
-                dbConnection.Query(query, personId);
+                string query = "UPDATE Person.Person SET IsDeleted = 1 WHERE Id = @PersonId";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@PersonId",personId,DbType.Guid);
+                dbConnection.Query(query, dynamicParameters);
                 return true;
             });
         }
@@ -68,29 +57,32 @@ namespace Identity.Infra.Repositories
         {
             return Task.Run<Person>(() =>
             {
-                string query = "SELECT * FROM Person.Person WHERE Id = @Id";
-                return dbConnection.Query<Person>(query, personId).FirstOrDefault();
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@PersonId",personId,DbType.Guid);
+                string query = "SELECT * FROM Person.Person WHERE Id = @PersonId";
+                return dbConnection.Query<Person>(query, dynamicParameters).FirstOrDefault();
             });
         }
-        public Task<Person> UpdatePersonAsync(Person personInput)
+        public Task UpdatePersonAsync(Person personInput)
         {
-            return Task.Run<Person>(() =>
+            return Task.Run(() =>
             {
-                string query = "UPDATE Person.Person SET Name = @Name, LastName = @LastName, NationalCode = @NationalCode, BirthDate = @BirthDate, IsMarried = @IsMarried, Gender = @Gender, CreationDate = @CreationDate, UpdateDate = @UpdateDate, IsDeleted = @IsDeleted";
-                Person person = dbConnection.Query<Person>(query, new
-                {
-                    personInput.Id,
-                    personInput.Name,
-                    personInput.LastName,
-                    personInput.NationalCode,
-                    personInput.BirthDate,
-                    personInput.IsMarried,
-                    personInput.Gender,
-                    personInput.CreationDate,
-                    personInput.UpdateDate,
-                    personInput.IsDeleted
-                }).FirstOrDefault();
-                return person;
+                string query = "UPDATE Person.Person SET Name = @Name, LastName = @LastName, NationalCode = @NationalCode, BirthDate = @BirthDate, IsMarried = @IsMarried, Gender = @Gender, CreationDate = @CreationDate, UpdateDate = @UpdateDate, IsDeleted = @IsDeleted WHERE Id = @PersonId";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+
+                dynamicParameters.Add("@PersonId",personInput.Id,DbType.Guid);
+                dynamicParameters.Add("@Name", personInput.Name,DbType.String);
+                dynamicParameters.Add("@LastName", personInput.LastName,DbType.String);
+                dynamicParameters.Add("@NationalCode", personInput.NationalCode,DbType.String);
+                dynamicParameters.Add("@BirthDate", personInput.BirthDate, DbType.DateTime2);
+                dynamicParameters.Add("@IsMarried", personInput.IsMarried, DbType.Boolean);
+                dynamicParameters.Add("@Gender", personInput.Gender, DbType.String);
+                dynamicParameters.Add("@CreationDate", personInput.CreationDate, DbType.DateTime2);
+                dynamicParameters.Add("@UpdateDate", personInput.UpdateDate, DbType.DateTime2);
+                dynamicParameters.Add("@IsDeleted", personInput.IsDeleted, DbType.Boolean);
+
+                dbConnection.Execute(query,dynamicParameters);
+
             });
         }
     }
