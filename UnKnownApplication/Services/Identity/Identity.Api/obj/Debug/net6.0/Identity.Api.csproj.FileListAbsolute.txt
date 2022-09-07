@@ -77,3 +77,6 @@ F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\Identity.Domain.dll
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\Identity.Domain.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\AutoMapper.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Services\Identity\Identity.Api\bin\Debug\net6.0\Dapper.dll

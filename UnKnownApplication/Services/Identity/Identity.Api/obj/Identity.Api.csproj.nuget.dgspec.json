@@ -30,7 +30,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Domain\\Identity.Domain.csproj": {
+                "projectPath": "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Domain\\Identity.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,6 +47,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -193,6 +205,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.8, )"
@@ -250,6 +266,9 @@
             "projectReferences": {
               "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Application\\Identity.Application.csproj": {
                 "projectPath": "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Application\\Identity.Application.csproj"
+              },
+              "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Infra\\Identity.Infra.csproj": {
+                "projectPath": "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Infra\\Identity.Infra.csproj"
               }
             }
           }

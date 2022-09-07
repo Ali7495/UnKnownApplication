@@ -13,3 +13,7 @@ F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\refint\Identity.IoC.dll
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\Identity.IoC.pdb
 F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\obj\Debug\net6.0\ref\Identity.IoC.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.Domain.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.Infra.dll
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.Infra.pdb
+F:\WorkShop\Programming\Projects\UnKnownApplication\UnKnownApplication\Identity.IoC\bin\Debug\net6.0\Identity.Domain.pdb
