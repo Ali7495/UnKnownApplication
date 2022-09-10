@@ -1,3 +1,4 @@
+using FluentValidation;
 using Identity.Application.ExceptionHandling;
 using Identity.Application.RequestUrlControlling;
 using Identity.Infra.Context;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -76,6 +78,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
                 .AddEntityFrameworkStores<UnKnownDbContext>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 DependencyContainer.RegisterServices(builder.Services);
 

@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DMtq6El7JPq2ICEEYaY+0crq7N0L1UVGhxUWxNNtdp3+Rpz2aC2QSZNvUBPKSzbIrKLeQyXd0qBtT+6XkbQN/A==",
+  "dgSpecHash": "RAhN6WIQehzlQYM5XGpJtyEPBOUwBOPyFnCU9kGvQ64HnpaDG3j/PhDCUTQMK9QUcgFsI2jpUlZY+x645y921Q==",
   "success": true,
   "projectFilePath": "F:\\WorkShop\\Programming\\Projects\\UnKnownApplication\\UnKnownApplication\\Identity.Application\\Identity.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\novin\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\novin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\novin\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
+    "C:\\Users\\novin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
     "C:\\Users\\novin\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\novin\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\novin\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",

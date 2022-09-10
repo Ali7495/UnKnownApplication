@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 using Identity.Application.DataTransferModels.InputDtos;
 using Identity.Application.DataTransferModels.OutPutDtos;
 using Identity.Application.Interfaces.PersonInterfaces;
+using Identity.Application.ModelValidators;
 using Identity.Domain.Interfaces;
+using Identity.Domain.Interfaces.PersonInterfaces;
 using Identity.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -16,15 +20,25 @@ namespace Identity.Application.AppServices.PersonServices
     {
         private readonly IPersonRepository _personRepository;
         private readonly IMapper _mapper;
-
-        public PersonService(IPersonRepository personRepository, IMapper mapper)
+        private readonly IValidator<PersonInputDto> _validator;
+        public PersonService(IPersonRepository personRepository, IMapper mapper, IValidator<PersonInputDto> validator)
         {
             _personRepository = personRepository;
             _mapper = mapper;
+            _validator = validator;
         }
 
         public async Task<PersonOutputDto> AddPerson(PersonInputDto personInputDto)
         {
+            ValidationResult validationResult = await _validator.ValidateAsync(personInputDto);
+
+            CommonValidationHandling.CommonValidationHandler(validationResult);
+
+            if (await _personRepository.IsPersonExistedByNationalCodeAsync(personInputDto.NationalCode))
+            {
+                throw new Exception("Person with this national code is already existed");
+            }
+
             Person person = _mapper.Map<Person>(personInputDto);
 
             person.Id = Guid.NewGuid();
@@ -57,6 +71,10 @@ namespace Identity.Application.AppServices.PersonServices
 
         public async Task<PersonOutputDto> UpdatePerson(Guid id, PersonInputDto personInputDto)
         {
+            Person oldPerson = await _personRepository.GetPersonByIdAsync(id);
+
+            await NationalCodeChangeChecker(oldPerson, personInputDto.NationalCode);
+
             Person person = _mapper.Map<Person>(personInputDto);
             person.Id = id;
             person.UpdateDate = DateTime.Now;
@@ -64,7 +82,16 @@ namespace Identity.Application.AppServices.PersonServices
 
             await _personRepository.UpdatePersonAsync(person);
 
-            return  _mapper.Map<PersonOutputDto>(person);
+            return _mapper.Map<PersonOutputDto>(person);
+        }
+
+
+        private async Task NationalCodeChangeChecker(Person oldPerson, string nationalCode)
+        {
+            if(oldPerson.NationalCode != nationalCode && await _personRepository.IsPersonExistedByNationalCodeAsync(nationalCode))
+            {
+                throw new Exception("Person with this national code is already existed");
+            }
         }
     }
 }

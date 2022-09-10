@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Identity.Domain.Interfaces;
+using Identity.Domain.Interfaces.PersonInterfaces;
 using Identity.Domain.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Identity.Infra.Repositories
+namespace Identity.Infra.Repositories.PersonRepository
 {
     public class PersonRepository : IPersonRepository
     {
@@ -63,6 +64,40 @@ namespace Identity.Infra.Repositories
                 return dbConnection.Query<Person>(query, dynamicParameters).FirstOrDefault();
             });
         }
+
+        public Task<Person> GetPersonByNationalCodeAsync(string nationalCode)
+        {
+            return Task.Run<Person>(() =>
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@NationalCode", nationalCode, DbType.String);
+                string query = "SELECT * FROM Person.Person WHERE NationalCode = @NationalCode";
+                return dbConnection.Query<Person>(query, dynamicParameters).FirstOrDefault();
+            });
+        }
+
+        public Task<bool> IsPersonExistedByNationalCodeAsync(string nationalCode)
+        {
+            return Task.Run<bool>(() =>
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+
+                dynamicParameters.Add("@NationalCode", nationalCode, DbType.String);
+
+                string query = "SELECT * FROM Person.Person WHERE NationalCode = @NationalCode";
+
+                Person? person = new Person();
+                person = dbConnection.Query<Person>(query, dynamicParameters).FirstOrDefault();
+
+                if (person == null)
+                {
+                    return false;
+                }
+
+                return true;
+            });
+        }
+
         public Task UpdatePersonAsync(Person personInput)
         {
             return Task.Run(() =>
