@@ -17,6 +17,17 @@ namespace Identity.Api.Controllers
             _personService = personService;
         }
 
+        public PersonController()
+        {
+            
+        }
+
+        [HttpGet("Nonesence")]
+        public async Task<IActionResult> Get()
+        {
+            return Ok(200);
+        }
+
         [HttpGet("")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetAllPersons()
