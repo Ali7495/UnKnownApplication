@@ -12,23 +12,11 @@ namespace Identity.Test
 {
     public class PersonTest
     {
+
+
+
+        // To test the service
         [Fact]
-        [Trait("UnCertain", "Test")]
-        public async Task Test1()
-        {
-            //Arrange
-            PersonController personController = new PersonController();
-
-            //Act
-            OkObjectResult result = (OkObjectResult)await personController.Get();
-
-            //Assert
-            result.StatusCode.Should().Be(200);
-        }
-
-
-        [Fact]
-        [Trait("UnCertain", "Test2")]
         public async Task TestWithServices()
         {
             //Arrange
@@ -42,6 +30,27 @@ namespace Identity.Test
 
             //Assert
             mockServices.Verify(services=> services.GetAllPersons(), Times.Once());
+        }
+
+
+        // To determine the type of the output
+        [Fact]
+        public async Task SuccessOnTypeOfPersonList()
+        {
+            //Arrange
+            var mockServices = new Mock<IPersonService>(MockBehavior.Strict);
+            mockServices.Setup(services=> services.GetAllPersons()).ReturnsAsync(new List<PersonOutputDto>());
+
+            PersonController personController = new PersonController(mockServices.Object);
+
+            //Act
+            var result = await personController.GetAllPersons();
+
+
+            //Assert
+            result.Should().BeOfType<OkObjectResult>();
+            OkObjectResult objectResult = (OkObjectResult)result;
+            objectResult.Value.Should().BeOfType<List<PersonOutputDto>>();
         }
     }
 }

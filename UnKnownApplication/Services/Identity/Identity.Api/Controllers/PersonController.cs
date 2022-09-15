@@ -22,11 +22,7 @@ namespace Identity.Api.Controllers
             
         }
 
-        [HttpGet("Nonesence")]
-        public async Task<IActionResult> Get()
-        {
-            return Ok(200);
-        }
+
 
         [HttpGet("")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
